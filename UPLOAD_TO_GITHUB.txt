@@ -1,0 +1,10 @@
+OH! SHINE — GITHUB-SAFE CATALOGUE
+
+1. UNZIP this package on your computer.
+2. Open the folder named ohshine_complete_light.
+3. Upload ALL files inside that folder to the ROOT of your GitHub Pages repository.
+4. Do NOT upload the ZIP itself into the repository.
+5. If GitHub asks to replace index.html, choose replace/overwrite because this is the complete recovery index.
+6. Commit the changes.
+
+This version has been compressed for GitHub and all image files are below 1 MB.
