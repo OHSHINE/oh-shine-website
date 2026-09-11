@@ -81,6 +81,8 @@ a{text-decoration:none;color:inherit}
   .section-head h2,.contact h2{font-size:43px}.story h2{font-size:48px}
   .footer-inner{flex-direction:column;text-align:center}
 }
+
+.catalogue-section{padding:85px 0;background:#f7eee7;display:none}.catalogue-section.show{display:block}.catalogue-toolbar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 auto 35px}.filter-btn{border:1px solid rgba(155,105,56,.35);background:#fff;color:var(--brown-dark);padding:10px 18px;border-radius:24px;font-size:11px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}.filter-btn.active,.filter-btn:hover{background:var(--brown);color:#fff}.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.product-card{background:#fff;border:1px solid rgba(155,105,56,.13);box-shadow:0 10px 30px rgba(73,45,24,.07);overflow:hidden}.product-card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}.product-info{padding:14px 15px 16px}.product-info .category{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--brown)}.product-info h3{font-family:"Cormorant Garamond",serif;font-size:22px;margin:5px 0 0;color:var(--brown-dark);font-weight:600}.catalogue-empty{text-align:center;padding:40px 15px;color:#7b695a;line-height:1.8}.catalogue-close{display:block;margin:0 auto 25px;border:0;background:transparent;color:var(--brown-dark);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}@media(max-width:1000px){.products-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.products-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.products-grid{grid-template-columns:1fr}.catalogue-section{padding:60px 0}}
 </style>
 </head>
 <body>
@@ -105,7 +107,7 @@ a{text-decoration:none;color:inherit}
     <p>Discover jewellery designed to make every moment feel a little more special — from effortless everyday pieces to traditional treasures and statement styles.</p>
     <a class="btn" href="#collections">Explore Collections</a>
   </div>
-  <div class="hero-art"><img src="logo.jpg" alt="Oh Shine Premium Jewellery logo"></div>
+  <div class="hero-art"><img src="assets/logo.jpg" alt="Oh Shine Premium Jewellery logo"></div>
 </section>
 
 <section id="collections" class="section">
@@ -116,16 +118,46 @@ a{text-decoration:none;color:inherit}
       <p>Find your next favourite piece from our signature jewellery and accessory collections.</p>
     </div>
     <div class="categories">
-      <a class="card" href="#contact"><img src="dailywear-earrings.png" alt="Dailywear Earrings"><div class="card-body"><h3>Dailywear Earrings</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="ethnic-earrings.png" alt="Ethnic Earrings"><div class="card-body"><h3>Ethnic Earrings</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="finger-rings.png" alt="Finger Rings"><div class="card-body"><h3>Finger Rings</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="american-diamond.png" alt="American Diamond Collection"><div class="card-body"><h3>American Diamond</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="hair-accessories.png" alt="Hair Accessories"><div class="card-body"><h3>Hair Accessories</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="kashmiri-bangles.png" alt="Kashmiri Bangles"><div class="card-body"><h3>Kashmiri Bangles</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="timeless-earrings.png" alt="Timeless Earrings"><div class="card-body"><h3>Timeless Earrings</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="anti-tarnish-necklace.png" alt="Anti Tarnish Necklace"><div class="card-body"><h3>Anti-Tarnish Necklaces</h3><small>Explore</small></div></a>
-      <a class="card" href="#contact"><img src="oxidised-earrings.png" alt="Oxidised Earrings"><div class="card-body"><h3>Oxidised Earrings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('daily');return false;"><img src="assets/dailywear-earrings.png" alt="Dailywear Earrings"><div class="card-body"><h3>Dailywear Earrings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('ethnic');return false;"><img src="assets/ethnic-earrings.png" alt="Ethnic Earrings"><div class="card-body"><h3>Ethnic Earrings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('rings');return false;"><img src="assets/finger-rings.png" alt="Finger Rings"><div class="card-body"><h3>Finger Rings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('ad');return false;"><img src="assets/american-diamond.png" alt="American Diamond Collection"><div class="card-body"><h3>American Diamond</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('hair');return false;"><img src="assets/hair-accessories.png" alt="Hair Accessories"><div class="card-body"><h3>Hair Accessories</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('bangles');return false;"><img src="assets/kashmiri-bangles.png" alt="Kashmiri Bangles"><div class="card-body"><h3>Kashmiri Bangles</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('timeless');return false;"><img src="assets/timeless-earrings.png" alt="Timeless Earrings"><div class="card-body"><h3>Timeless Earrings</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('necklace');return false;"><img src="assets/anti-tarnish-necklace.png" alt="Anti Tarnish Necklace"><div class="card-body"><h3>Anti-Tarnish Necklaces</h3><small>Explore</small></div></a>
+      <a class="card" href="#catalogue" onclick="openCatalogue('oxidised');return false;"><img src="assets/oxidised-earrings.png" alt="Oxidised Earrings"><div class="card-body"><h3>Oxidised Earrings</h3><small>Explore</small></div></a>
     </div>
+  </div>
+</section>
+
+<section id="catalogue" class="catalogue-section">
+  <div class="container">
+    <button class="catalogue-close" onclick="closeCatalogue()">← Back to collections</button>
+    <div class="section-head">
+      <div class="eyebrow">Oh! Shine catalogue</div>
+      <h2 id="catalogue-title">Our Products</h2>
+      <p>Explore our available designs. Select another collection below to browse more pieces.</p>
+    </div>
+    <div class="catalogue-toolbar">
+      <button class="filter-btn" data-filter="daily">Dailywear</button><button class="filter-btn" data-filter="ethnic">Ethnic</button><button class="filter-btn" data-filter="ad">American Diamond</button><button class="filter-btn" data-filter="timeless">Timeless</button><button class="filter-btn" data-filter="oxidised">Oxidised</button><button class="filter-btn" data-filter="necklace">Necklaces & Bracelets</button><button class="filter-btn" data-filter="rings">Finger Rings</button><button class="filter-btn" data-filter="hair">Hair Accessories</button><button class="filter-btn" data-filter="bangles">Kashmiri Bangles</button>
+    </div>
+    <div id="products-grid" class="products-grid"><article class="product-card" data-category="daily"><img src="assets/catalogue/p1.png" alt="Long Gold Fan Drop Earrings"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Long Gold Fan Drop Earrings</h3></div></article>
+<article class="product-card" data-category="daily"><img src="assets/catalogue/p2.png" alt="Golden Wing Drop Earrings"><div class="product-info"><div class="category">Dailywear Earrings</div><h3>Golden Wing Drop Earrings</h3></div></article>
+<article class="product-card" data-category="timeless"><img src="assets/catalogue/p3.png" alt="Elegant Crystal Leaf Drop Earrings"><div class="product-info"><div class="category">Timeless Earrings</div><h3>Elegant Crystal Leaf Drop Earrings</h3></div></article>
+<article class="product-card" data-category="timeless"><img src="assets/catalogue/p4.png" alt="Floral Crystal Drop Earrings"><div class="product-info"><div class="category">Timeless Earrings</div><h3>Floral Crystal Drop Earrings</h3></div></article>
+<article class="product-card" data-category="ethnic"><img src="assets/catalogue/p5.jpeg" alt="Pink Stone Ethnic Earrings"><div class="product-info"><div class="category">Ethnic Earrings</div><h3>Pink Stone Ethnic Earrings</h3></div></article>
+<article class="product-card" data-category="ethnic"><img src="assets/catalogue/p6.jpeg" alt="Peacock Jhumka Earrings"><div class="product-info"><div class="category">Ethnic Earrings</div><h3>Peacock Jhumka Earrings</h3></div></article>
+<article class="product-card" data-category="oxidised"><img src="assets/catalogue/p7.jpeg" alt="Multicolour Oxidised Earrings"><div class="product-info"><div class="category">Oxidised Earrings</div><h3>Multicolour Oxidised Earrings</h3></div></article>
+<article class="product-card" data-category="oxidised"><img src="assets/catalogue/p8.jpeg" alt="Oxidised Statement Set"><div class="product-info"><div class="category">Oxidised Earrings</div><h3>Oxidised Statement Set</h3></div></article>
+<article class="product-card" data-category="oxidised"><img src="assets/catalogue/p9.jpeg" alt="Traditional Oxidised Set"><div class="product-info"><div class="category">Oxidised Earrings</div><h3>Traditional Oxidised Set</h3></div></article>
+<article class="product-card" data-category="ad"><img src="assets/catalogue/p10.png" alt="Crystal & Gold Statement Earrings"><div class="product-info"><div class="category">American Diamond</div><h3>Crystal & Gold Statement Earrings</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="assets/catalogue/p11.jpeg" alt="Butterfly Pendant Necklace"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Butterfly Pendant Necklace</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="assets/catalogue/p12.jpeg" alt="Heart Pendant Necklace"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Heart Pendant Necklace</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="assets/catalogue/p13.jpeg" alt="Bow Pendant Necklace"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Bow Pendant Necklace</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="assets/catalogue/p14.jpeg" alt="Black Stone Bracelet"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Black Stone Bracelet</h3></div></article>
+<article class="product-card" data-category="necklace"><img src="assets/catalogue/p15.jpeg" alt="Pink Stone Bracelet"><div class="product-info"><div class="category">Anti-Tarnish Necklaces</div><h3>Pink Stone Bracelet</h3></div></article></div>
+    <div id="catalogue-empty" class="catalogue-empty" style="display:none">New designs are coming soon for this collection.</div>
   </div>
 </section>
 
@@ -169,6 +201,11 @@ a{text-decoration:none;color:inherit}
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click", () => document.querySelector(".nav-links").classList.remove("open")));
+
+function openCatalogue(category){document.getElementById('catalogue').classList.add('show');filterCatalogue(category);document.getElementById('catalogue').scrollIntoView({behavior:'smooth'});}
+function closeCatalogue(){document.getElementById('catalogue').classList.remove('show');document.getElementById('collections').scrollIntoView({behavior:'smooth'});}
+function filterCatalogue(category){const cards=[...document.querySelectorAll('.product-card')];let shown=0;cards.forEach(c=>{const ok=c.dataset.category===category;c.style.display=ok?'block':'none';if(ok)shown++;});document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===category));document.getElementById('catalogue-empty').style.display=shown?'none':'block';const titles={daily:'Dailywear Earrings',ethnic:'Ethnic Earrings',ad:'American Diamond',timeless:'Timeless Earrings',oxidised:'Oxidised Earrings',necklace:'Anti-Tarnish Necklaces',rings:'Finger Rings',hair:'Hair Accessories',bangles:'Kashmiri Bangles'};document.getElementById('catalogue-title').textContent=titles[category]||'Our Products';}
+document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>filterCatalogue(b.dataset.filter)));
 </script>
 </body>
 </html>
